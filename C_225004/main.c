@@ -4,13 +4,25 @@
 
 void main()
 {
-	int x = 0;
-	float y = 0;
-	printf("nhap gia tri cho x: ");
-	scanf("%d", &x);
+	float diem = 0;
 
-	printf("nhap gia tri cho y: ");
-	scanf("%f", &y);
+	printf("nhap diem trung binh: ");
+	scanf("%f", &diem);
 
-	printf("Hello world, gia tri x: %d, y: %f\n", x, y);
+	if (diem >= 8.0)
+	{
+		printf("GIOI \n");
+	}
+	else if (diem >= 6.5)
+	{
+		printf("KHA \n");
+	}
+	else if (diem >= 5.0)
+	{
+		printf("TRUNG BINH \n");
+	}
+	else
+	{
+		printf("YEU \n");
+	}
 }
