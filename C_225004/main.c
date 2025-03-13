@@ -1,32 +1,38 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <conio.h>
+#include <math.h>
 
 void main()
 {
-	int so_tien_can_rut = 10000;
-	int so_to_50 = 0;
-	int so_to_100 = 0;
-	int so_to_200 = 0;
-	int so_to_500 = 0;
-	int tong_tien_atm_tra = 0;
-	while (tong_tien_atm_tra < so_tien_can_rut)
+	int n = 22345;
+	int don_vi = 0;
+	// làm sao đê biết con số n tới hàng mấy? ngàn
+	while (n / (int)pow(10, don_vi))
 	{
-		if (so_tien_can_rut - tong_tien_atm_tra >= 50)
-			so_to_50++;
-		tong_tien_atm_tra = so_to_50 * 50 + so_to_100 * 100 + so_to_200 * 200 + so_to_500 * 500;
-
-		if (so_tien_can_rut - tong_tien_atm_tra >= 100)
-			so_to_100++;
-		tong_tien_atm_tra = so_to_50 * 50 + so_to_100 * 100 + so_to_200 * 200 + so_to_500 * 500;
-
-		if (so_tien_can_rut - tong_tien_atm_tra >= 200)
-			so_to_200++;
-		tong_tien_atm_tra = so_to_50 * 50 + so_to_100 * 100 + so_to_200 * 200 + so_to_500 * 500;
-
-		if (so_tien_can_rut - tong_tien_atm_tra >= 500)
-			so_to_500++;
-		tong_tien_atm_tra = so_to_50 * 50 + so_to_100 * 100 + so_to_200 * 200 + so_to_500 * 500;
+		don_vi++;
+	}
+	printf("don vi: %d\n", don_vi);
+	for (int i = don_vi - 1; i >= 0; i--)
+	{
+		int tam = n / (int)pow(10, i);
+		printf("%d", tam); 
+		switch (i)
+		{
+		case 4:
+			printf(" muoi ");
+			break;
+		case 3:
+			printf(" ngan ");
+			break;
+		case 2:
+			printf(" tram ");
+			break;
+		case 1: 
+			printf(" muoi ");
+			break;
+		}
+		n = n - tam * pow(10, i);
 	}
 	
 }
