@@ -1,65 +1,64 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include "BitCoin.h"
 
-
-
-// Chức năng: cộng 2 số nguyên
-// input: hai số nguyên
-//	int x: số nguyên thứ nhất
-//	int y: số nguyên thứ hai
-// output int: kêt quả
-int Cong_So_Nguyen(int x, int y)
+// bài 1: điếm số ký tự trong chuổi
+// input:
+//	char* str: chuổi cần tìm 
+// output: int số lượng ký tự trong chuổi
+int Tim_So_Ky_Tu(char* str)
 {
-	// output về một đối tượng int
-	int ketqua = 0;
-	ketqua = x + y;
-	return ketqua;
-}
-
-// Chức năng: in hello ra màn hình console
-// input: không có
-// output: không có
-void In_Hello()
-{
-	printf("hello\n");
-}
-
-// Chức năng: dùng để tính tổng các giá trị trong mảng char
-// input: mảng char
-//	char* dia_chi: địa chỉ bất đầu của mảng
-//	int so_luong : số lượng phần tử trong mảng
-// output: int kết quả của phép tính
-int Tong_Mang(char* dia_chi, int so_luong)
-{
-	int ketqua = 0;
-	for (int i = 0; i < so_luong; i++)
+	int diem = 0;
+	while (str[diem] != 0)
 	{
-		ketqua += *(dia_chi + i);
-		// ketqua += dia_chi[i];
+		diem++;
 	}
-	return ketqua;
+	return diem;
 }
 
-// Chức nâng: dùng để điếm số ký tự trong chuổi
-// input: chuổi
-//	char* chuoi: địa chỉ bất đầu của chuổi
-// output: int số lượng ký tự
-int Diem_Ky_Tu(char* chuoi)
+
+// bài 6: tìm ký tự c trong chuổi str
+// input:
+//	char* str : chuỗi cần tìm
+//	char c	  : ký tự cần tìm
+// output: char* địa chỉ của c trong str
+char* Tim_Ky_Tu(char* str, char c)
 {
-	int ketqua = 0;
-	while (chuoi[ketqua] != 0)
+	int chieu_dai_chuoi = Tim_So_Ky_Tu(str);
+	for (int i = 0; i < chieu_dai_chuoi; i++)
 	{
-		ketqua++;
+		if (str[i] == c)
+			return str + i;
 	}
-	return ketqua;
+	return 0;
 }
 
+// bài 7: tìm chuổi subStr trong chuổi str
+// input:
+//	char* str: chuổi lớn cần tìm
+//	char* subStr: chuổi nhỏ cần tìm
+// output: char* địa chỉ của subStr trong str
+char* Tim_Chuoi(char* str, char* subStr)
+{
+	int chieu_dai_str = Tim_So_Ky_Tu(str);
+	int chieu_dai_subStr = Tim_So_Ky_Tu(subStr);
+	for (int i = 0; i < chieu_dai_str; i++)
+	{
+		int j = 0;
+		for (; j < chieu_dai_subStr; j++)
+		{
+			if (str[i + j] != subStr[j])
+				break;
+		}
+		if (j == chieu_dai_subStr)
+			return str + i;
+	}
+	return 0;
+}
 
 void main()
 {
-	
-
+	char str[] = "xin chao moi nguoi";
+	char subStr[] = "chau";
+	char* vi_tri = Tim_Chuoi(str, subStr);
 }
-
-
-
