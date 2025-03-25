@@ -1,64 +1,31 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include "BitCoin.h"
 
-// bài 1: điếm số ký tự trong chuổi
-// input:
-//	char* str: chuổi cần tìm 
-// output: int số lượng ký tự trong chuổi
-int Tim_So_Ky_Tu(char* str)
+
+typedef struct
 {
-	int diem = 0;
-	while (str[diem] != 0)
-	{
-		diem++;
-	}
-	return diem;
-}
+	int tu;
+	int mau;
+} phan_so_t;
 
-
-// bài 6: tìm ký tự c trong chuổi str
-// input:
-//	char* str : chuỗi cần tìm
-//	char c	  : ký tự cần tìm
-// output: char* địa chỉ của c trong str
-char* Tim_Ky_Tu(char* str, char c)
+// Chức nâng: Nhân 2 phân số
+// Input:
+//	phan_so_t x - phân số thứ nhất
+//	phan_so_t y - phân số thứ hai
+// Output: (phan_so_t) kết quả của phép tính
+phan_so_t NhanPhanSo(phan_so_t x, phan_so_t y)
 {
-	int chieu_dai_chuoi = Tim_So_Ky_Tu(str);
-	for (int i = 0; i < chieu_dai_chuoi; i++)
-	{
-		if (str[i] == c)
-			return str + i;
-	}
-	return 0;
-}
-
-// bài 7: tìm chuổi subStr trong chuổi str
-// input:
-//	char* str: chuổi lớn cần tìm
-//	char* subStr: chuổi nhỏ cần tìm
-// output: char* địa chỉ của subStr trong str
-char* Tim_Chuoi(char* str, char* subStr)
-{
-	int chieu_dai_str = Tim_So_Ky_Tu(str);
-	int chieu_dai_subStr = Tim_So_Ky_Tu(subStr);
-	for (int i = 0; i < chieu_dai_str; i++)
-	{
-		int j = 0;
-		for (; j < chieu_dai_subStr; j++)
-		{
-			if (str[i + j] != subStr[j])
-				break;
-		}
-		if (j == chieu_dai_subStr)
-			return str + i;
-	}
-	return 0;
+	phan_so_t kq;
+	kq.tu = x.tu * y.tu;
+	kq.mau = x.mau * y.mau;
+	return kq;
 }
 
 void main()
 {
-	char str[] = "xin chao moi nguoi";
-	char subStr[] = "chau";
-	char* vi_tri = Tim_Chuoi(str, subStr);
+	phan_so_t A = { 1, 2 };
+	phan_so_t B = { .mau = 3, .tu = 2 };
+
+	phan_so_t C = NhanPhanSo(A, B);
+	printf("ket qua: %d/%d \n", C.tu, C.mau);
 }
