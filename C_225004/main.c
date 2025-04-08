@@ -69,5 +69,4 @@ void main()
 	AddNodeToLinkList(&ll, 5);
 
 	int x = GetValueIndex(&ll, 3);
-
 }
