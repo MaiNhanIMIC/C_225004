@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BitCoin.c" />
-    <ClCompile Include="main.c" />
+    <ClCompile Include="hinh_hoc.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="tinh_giai_thua.c" />
     <ClCompile Include="toan.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitCoin.h" />
+    <ClInclude Include="hinh_hoc.h" />
     <ClInclude Include="toan.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

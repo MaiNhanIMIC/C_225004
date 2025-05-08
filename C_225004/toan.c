@@ -1,5 +1,4 @@
 ﻿#include "toan.h"
-
 // chức nâng nhân 2 số nguyên
 // input:
 //	int x: số nguyên thứ nhất
@@ -23,7 +22,7 @@ int Nhan(int x, int y)
 //	int x: số nguyên thứ nhất
 //	int y: số nguyên thứ hai
 // output: int - ket quả của phép tính
-int Cong(int x, int y)
+static int Cong(int x, int y)
 {
 	int ketqua = 0;
 	ketqua = x + y;
